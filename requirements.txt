@@ -1,5 +1,5 @@
 Flask==2.3.3
-Pillow==10.0.1
+Pillow==10.3.0
 numpy==1.24.3
 perlin-noise==1.2.3
 matplotlib==3.7.2
