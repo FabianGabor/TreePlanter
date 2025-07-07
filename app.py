@@ -29,52 +29,58 @@ class TreePlanner:
         """Generate tree positions using Perlin noise for natural randomness while maintaining minimum distance"""
         self.trees = []
         
+        # Use a denser initial grid to ensure good coverage
+        grid_spacing = self.tree_distance * 0.8  # Closer initial grid
+        cols = int(self.width / grid_spacing) + 1
+        rows = int(self.length / grid_spacing) + 1
+        
         # Create Perlin noise generators with random seeds for each generation
         seed_x = random.randint(1, 10000)
         seed_y = random.randint(1, 10000)
-        noise_x = PerlinNoise(octaves=6, seed=seed_x)
-        noise_y = PerlinNoise(octaves=6, seed=seed_y)
+        noise_x = PerlinNoise(octaves=4, seed=seed_x)
+        noise_y = PerlinNoise(octaves=4, seed=seed_y)
         
-        # Calculate approximate number of trees that should fit
-        area = self.width * self.length
-        tree_area = self.tree_distance * self.tree_distance
-        max_attempts = int(area / tree_area * 3)  # Try 3x the theoretical maximum
+        # Collect all potential positions first
+        potential_positions = []
         
-        # Use sampling approach with Perlin noise
-        attempts = 0
-        scale = 0.02  # Noise scale for natural distribution
-        
-        while len(self.trees) < max_attempts and attempts < max_attempts * 2:
-            attempts += 1
-            
-            # Generate noise-based position
-            noise_val_x = noise_x([attempts * scale])
-            noise_val_y = noise_y([attempts * scale * 1.3])  # Different scale for Y to avoid correlation
-            
-            # Map noise values (-1 to 1) to area dimensions
-            x = (noise_val_x + 1) / 2 * (self.width - 1) + 0.5
-            y = (noise_val_y + 1) / 2 * (self.length - 1) + 0.5
-            
-            # Apply randomness factor - higher randomness = more scattered
-            if self.randomness > 0:
-                # Add additional random displacement
-                random_x = (random.random() - 0.5) * self.tree_distance * self.randomness
-                random_y = (random.random() - 0.5) * self.tree_distance * self.randomness
-                x += random_x
-                y += random_y
-            
-            # Ensure position is within bounds
-            x = max(0.5, min(self.width - 0.5, x))
-            y = max(0.5, min(self.length - 0.5, y))
-            
-            # Check minimum distance constraint
-            new_tree = (x, y)
-            if self._is_valid_position(new_tree):
-                self.trees.append(new_tree)
+        for row in range(rows):
+            for col in range(cols):
+                # Base grid position
+                base_x = col * grid_spacing + grid_spacing / 2
+                base_y = row * grid_spacing + grid_spacing / 2
                 
-            # Early exit if we have enough trees
-            if len(self.trees) >= area / tree_area * 0.8:  # Stop at 80% of theoretical maximum
-                break
+                # Skip if outside bounds
+                if base_x >= self.width or base_y >= self.length:
+                    continue
+                
+                # Add Perlin noise displacement
+                scale = 0.15
+                x_noise_val = noise_x([col * scale, row * scale])
+                y_noise_val = noise_y([col * scale + 100, row * scale + 100])  # Offset for different pattern
+                
+                # Apply displacement with randomness factor
+                max_displacement = self.tree_distance * self.randomness * 0.6
+                displaced_x = base_x + x_noise_val * max_displacement
+                displaced_y = base_y + y_noise_val * max_displacement
+                
+                # Add some pure randomness for more natural look
+                if self.randomness > 0.3:
+                    displaced_x += (random.random() - 0.5) * self.tree_distance * 0.3
+                    displaced_y += (random.random() - 0.5) * self.tree_distance * 0.3
+                
+                # Ensure trees stay within bounds
+                displaced_x = max(1, min(self.width - 1, displaced_x))
+                displaced_y = max(1, min(self.length - 1, displaced_y))
+                
+                potential_positions.append((displaced_x, displaced_y))
+        
+        # Sort positions randomly to avoid systematic bias
+        random.shuffle(potential_positions)
+        
+        # Place trees while maintaining minimum distance
+        for pos in potential_positions:
+            if self._is_valid_position(pos):
+                self.trees.append(pos)
         
         return self.trees
     
@@ -115,7 +121,11 @@ class TreePlanner:
                 circle = patches.Circle((x, y), self.tree_distance, 
                                       linewidth=1, edgecolor='lightblue', 
                                       facecolor='none', alpha=0.4)
-                ax.add_patch(circle)
+                circle_half = patches.Circle((x, y), self.tree_distance/2, 
+                                      linewidth=1, edgecolor='lightgreen', 
+                                      facecolor='none', alpha=0.6)
+                # ax.add_patch(circle)
+                ax.add_patch(circle_half)
         
         # Add grid for reference
         ax.grid(True, alpha=0.3)
