@@ -1,97 +1,152 @@
-# Tree Planter Tool
+# Tree Planner Package
 
-A Python web application for generating tree planting plans with intelligent spacing using Perlin noise for natural randomness.
+A Flask application for generating tree planting plans using various algorithms including Perlin noise, Poisson disc sampling, natural forest patterns, and uniform angle index methods.
 
 ## Features
 
-- **Web Interface**: Clean, modern interface for easy input
-- **Intelligent Spacing**: Uses Perlin noise to create natural-looking tree placement
-- **Visual Output**: Generates planting plan images with coordinates
-- **Customizable Parameters**: 
-  - Area dimensions (width × length)
-  - Tree spacing distance
-  - Randomness factor (from regular grid to natural placement)
-- **Export Functionality**: Download tree coordinates as JSON file
-- **Statistics**: Shows total trees, area size, and tree density
+- **Multiple Generation Methods**:
+
+  - Perlin Noise: Organic, natural-looking patterns using coherent noise algorithms
+  - Poisson Disc Sampling: Evenly distributed points with controlled minimum spacing
+  - Natural Forest Pattern: Simulates natural forest dynamics with gaps and clusters
+  - Uniform Angle Index: Scientific method based on Zhang et al. (2019) research
+
+- **Web Interface**: Interactive web UI for parameter configuration and visualization
+- **Real-time Progress**: Live optimization progress updates
+- **Export Functionality**: Download coordinates as JSON files
+- **Comprehensive Testing**: Full unit test coverage
+
+## Project Structure
+
+```
+tree_planner/
+├── tree_planner/           # Main package
+│   ├── __init__.py
+│   ├── config.py           # Configuration management
+│   ├── base.py            # Base classes and interfaces
+│   ├── core.py            # Main TreePlanner class
+│   ├── app.py             # Flask application
+│   └── generators/        # Generator implementations
+│       ├── __init__.py
+│       ├── perlin_generator.py
+│       ├── poisson_generator.py
+│       ├── natural_generator.py
+│       └── uniform_angle_generator.py
+├── tests/                 # Test suite
+│   ├── __init__.py
+│   ├── test_base.py
+│   ├── test_core.py
+│   ├── test_app.py
+│   └── generators/
+├── templates/             # HTML templates
+│   └── index.html
+├── static/               # Static files
+├── main.py              # Application entry point
+├── run_tests.py         # Test runner
+└── requirements.txt     # Dependencies
+```
 
 ## Installation
 
-1. Clone or download this repository
-2. Install Python dependencies:
+1. Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
+2. Run the application:
+
+```bash
+python main.py
+```
+
+3. Open http://localhost:5000 in your browser
+
+## Testing
+
+Run the test suite:
+
+```bash
+python run_tests.py
+```
+
+Or use pytest:
+
+```bash
+pytest tests/
+```
+
 ## Usage
 
-1. Start the application:
-```bash
-python app.py
+### Programmatic API
+
+```python
+from tree_planner import TreePlanner
+
+# Create a planner
+planner = TreePlanner(
+    width=20.0,           # Width in meters
+    length=15.0,          # Length in meters
+    tree_distance=3.0,    # Approximate spacing
+    randomness=0.3,       # Randomness factor (0-1)
+    method="perlin"       # Generation method
+)
+
+# Generate positions
+trees = planner.generate_tree_positions()
+
+# Get coordinates
+coordinates = planner.get_tree_coordinates_json()
+
+# Generate visualization
+image_buffer = planner.generate_planting_image()
 ```
 
-2. Open your web browser and go to `http://localhost:5000`
+### Web Interface
 
-3. Enter your parameters:
-   - **Width & Length**: Dimensions of your planting area in meters
-   - **Tree Distance**: Approximate spacing between trees in meters
-   - **Randomness**: Slider from regular grid (0) to natural placement (0.8)
+1. Configure area dimensions (width, length)
+2. Set tree spacing distance
+3. Adjust randomness factor
+4. Select generation method
+5. Click "Generate Planting Plan"
+6. View results and download coordinates
 
-4. Click "Generate Planting Plan" to create your layout
+## Configuration
 
-5. View the results:
-   - Visual planting plan image
-   - Statistics (total trees, area, density)
-   - Tree coordinates list
-   - Download coordinates as JSON file
+The application supports different configuration environments:
 
-## Technical Details
+- `development`: Debug mode enabled, full iterations
+- `testing`: Reduced iterations for faster testing
+- `production`: Optimized for production deployment
 
-### Algorithm
-- Uses Perlin noise to generate natural-looking randomness
-- Starts with a regular grid based on specified spacing
-- Applies noise-based displacement within bounds
-- Ensures trees stay within the defined area
+Set the environment with the `FLASK_ENV` environment variable.
 
-### Output Format
-The coordinates JSON file contains:
-```json
-{
-  "area": {
-    "width": 50.0,
-    "length": 30.0
-  },
-  "spacing": 5.0,
-  "total_trees": 48,
-  "coordinates": [
-    {"x": 2.34, "y": 2.67, "id": 1},
-    {"x": 7.12, "y": 2.89, "id": 2},
-    ...
-  ]
-}
-```
+## Methods
 
-### Dependencies
-- **Flask**: Web framework
-- **NumPy**: Numerical computations
-- **noise**: Perlin noise generation
-- **Matplotlib**: Plotting and image generation
-- **Pillow**: Image processing
+### Perlin Noise Method
 
-## Customization
+Uses coherent noise algorithms to create organic, natural-looking patterns with smooth variations in tree placement.
 
-You can modify the Perlin noise parameters in `app.py`:
-- `scale`: Controls noise frequency
-- `octaves`: Number of noise layers
-- `persistence`: How much each octave contributes
-- `lacunarity`: Frequency multiplier between octaves
+### Poisson Disc Sampling
 
-## Example Use Cases
+Generates evenly distributed points with controlled minimum spacing, preventing clustering while maintaining natural randomness.
 
-- **Forestry**: Planning reforestation areas
-- **Landscaping**: Designing natural-looking tree layouts
-- **Agriculture**: Agroforestry planning
-- **Urban Planning**: Green space design
-- **Research**: Ecological studies requiring controlled tree placement
+### Natural Forest Pattern
+
+Simulates natural forest dynamics including gap creation, clustered regeneration, and variable spacing based on forest ecology principles.
+
+### Uniform Angle Index Method
+
+Scientific method based on Zhang et al. (2019) research using structural units to ensure ≥50% random units (Wi=0.5) for near-natural patterns.
+
+## API Endpoints
+
+- `GET /`: Main application interface
+- `POST /generate_plan`: Generate tree planting plan
+- `GET /optimization_progress`: Get current optimization progress
+- `GET /generate_plan_stream`: Real-time streaming updates (SSE)
+- `POST /download_coordinates`: Download coordinates as JSON
+- `GET /test`: Health check endpoint
 
 ## License
 
