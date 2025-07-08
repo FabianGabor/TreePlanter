@@ -44,6 +44,8 @@ lint.ignore = [
     "PLR0912", # Too many branches
     "PLR0915", # Too many statements
     "RUF012", # Mutable class attributes should be annotated with `typing.ClassVar`
+    "RUF002", # Docstring contains ambiguous unicode character
+    "RUF003", # Comment contains ambiguous unicode character
 ]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.
