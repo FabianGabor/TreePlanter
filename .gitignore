@@ -1,3 +1,5 @@
 /.venv
 /run.bat
 __pycache__/
+*.pdf
+*.png

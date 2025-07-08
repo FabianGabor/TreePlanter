@@ -79,9 +79,9 @@ echo ""
 
 # 4. Run Pylint on main files
 print_section "Running Pylint"
-PYTHON_FILES=("app.py")
+PYTHON_FILES=("main.py" "tree_planner/")
 for file in "${PYTHON_FILES[@]}"; do
-    if [ -f "$file" ]; then
+    if [ -f "$file" ] || [ -d "$file" ]; then
         echo "Checking $file..."
         if pylint "$file" --rcfile=pylintrc; then
             echo -e "${GREEN}✓ Pylint check passed for $file${NC}"

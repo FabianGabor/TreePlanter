@@ -14,7 +14,7 @@ echo "📋 Checking dependencies..."
 pip install -r requirements.txt --quiet
 
 # Set environment variables
-export FLASK_APP=app.py
+export FLASK_APP=main.py
 export FLASK_ENV=development
 export FLASK_DEBUG=1
 

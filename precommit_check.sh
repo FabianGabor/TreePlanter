@@ -74,7 +74,7 @@ if [ -f ".pre-commit-config.yaml" ]; then
     echo "  - Merge conflict detection"
     echo "  - Debug statement detection"
     echo "  - Ruff linting and formatting"
-    echo "  - Pylint analysis (app.py only)"
+    echo "  - Pylint analysis (main.py and tree_planner/ package)"
 else
     echo -e "${RED}✗${NC} Configuration file not found"
 fi

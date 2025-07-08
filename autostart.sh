@@ -7,7 +7,7 @@ echo "🌲 Starting TreePlanter Flask app..."
 sleep 2
 
 # Start Flask app in background
-export FLASK_APP=app.py
+export FLASK_APP=main.py
 export FLASK_ENV=development
 export FLASK_DEBUG=1
 

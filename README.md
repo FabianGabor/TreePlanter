@@ -1,144 +1,153 @@
-# Tree Planter Tool
+# Tree Planner Package
 
-A Python web application for generating tree planting plans with intelligent spacing using Perlin noise for natural randomness.
+A Flask application for generating tree planting plans using various algorithms including Perlin noise, Poisson disc sampling, natural forest patterns, and uniform angle index methods.
 
 ## Features
 
-- **Web Interface**: Clean, modern interface for easy input
-- **Intelligent Spacing**: Uses Perlin noise to create natural-looking tree placement
-- **Visual Output**: Generates planting plan images with coordinates
-- **Customizable Parameters**:
-  - Area dimensions (width × length)
-  - Tree spacing distance
-  - Randomness factor (from regular grid to natural placement)
-- **Export Functionality**: Download tree coordinates as JSON file
-- **Statistics**: Shows total trees, area size, and tree density
+- **Multiple Generation Methods**:
+
+  - Perlin Noise: Organic, natural-looking patterns using coherent noise algorithms
+  - Poisson Disc Sampling: Evenly distributed points with controlled minimum spacing
+  - Natural Forest Pattern: Simulates natural forest dynamics with gaps and clusters
+  - Uniform Angle Index: Scientific method based on Zhang et al. (2019) research
+
+- **Web Interface**: Interactive web UI for parameter configuration and visualization
+- **Real-time Progress**: Live optimization progress updates
+- **Export Functionality**: Download coordinates as JSON files
+- **Comprehensive Testing**: Full unit test coverage
+
+## Project Structure
+
+```
+tree_planner/
+├── tree_planner/           # Main package
+│   ├── __init__.py
+│   ├── config.py           # Configuration management
+│   ├── base.py            # Base classes and interfaces
+│   ├── core.py            # Main TreePlanner class
+│   ├── app.py             # Flask application
+│   └── generators/        # Generator implementations
+│       ├── __init__.py
+│       ├── perlin_generator.py
+│       ├── poisson_generator.py
+│       ├── natural_generator.py
+│       └── uniform_angle_generator.py
+├── tests/                 # Test suite
+│   ├── __init__.py
+│   ├── test_base.py
+│   ├── test_core.py
+│   ├── test_app.py
+│   └── generators/
+├── templates/             # HTML templates
+│   └── index.html
+├── static/               # Static files
+├── main.py              # Application entry point
+├── run_tests.py         # Test runner
+└── requirements.txt     # Dependencies
+```
 
 ## Installation
 
-1. Clone or download this repository
-2. Install Python dependencies:
+1. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Usage
-
-1. Start the application:
+2. Run the application:
 
 ```bash
-python app.py
+python main.py
 ```
 
-2. Open your web browser and go to `http://localhost:5000`
+3. Open http://localhost:5000 in your browser
 
-3. Enter your parameters:
+## Testing
 
-   - **Width & Length**: Dimensions of your planting area in meters
-   - **Tree Distance**: Approximate spacing between trees in meters
-   - **Randomness**: Slider from regular grid (0) to natural placement (0.8)
+Run the test suite:
 
-4. Click "Generate Planting Plan" to create your layout
-
-5. View the results:
-   - Visual planting plan image
-   - Statistics (total trees, area, density)
-   - Tree coordinates list
-   - Download coordinates as JSON file
-
-## Technical Details
-
-### Algorithm
-
-- Uses Perlin noise to generate natural-looking randomness
-- Starts with a regular grid based on specified spacing
-- Applies noise-based displacement within bounds
-- Ensures trees stay within the defined area
-
-### Output Format
-
-The coordinates JSON file contains:
-
-```json
-{
-  "area": {
-    "width": 50.0,
-    "length": 30.0
-  },
-  "spacing": 5.0,
-  "total_trees": 48,
-  "coordinates": [
-    {"x": 2.34, "y": 2.67, "id": 1},
-    {"x": 7.12, "y": 2.89, "id": 2},
-    ...
-  ]
-}
+```bash
+python run_tests.py
 ```
 
-### Dependencies
+Or use pytest:
 
-- **Flask**: Web framework
-- **NumPy**: Numerical computations
-- **noise**: Perlin noise generation
-- **Matplotlib**: Plotting and image generation
-- **Pillow**: Image processing
+```bash
+pytest tests/
+```
 
-## Customization
+## Usage
 
-You can modify the Perlin noise parameters in `app.py`:
+### Programmatic API
 
-- `scale`: Controls noise frequency
-- `octaves`: Number of noise layers
-- `persistence`: How much each octave contributes
-- `lacunarity`: Frequency multiplier between octaves
+```python
+from tree_planner import TreePlanner
 
-## Example Use Cases
+# Create a planner
+planner = TreePlanner(
+    width=20.0,           # Width in meters
+    length=15.0,          # Length in meters
+    tree_distance=3.0,    # Approximate spacing
+    randomness=0.3,       # Randomness factor (0-1)
+    method="perlin"       # Generation method
+)
 
-- **Forestry**: Planning reforestation areas
-- **Landscaping**: Designing natural-looking tree layouts
-- **Agriculture**: Agroforestry planning
-- **Urban Planning**: Green space design
-- **Research**: Ecological studies requiring controlled tree placement
+# Generate positions
+trees = planner.generate_tree_positions()
+
+# Get coordinates
+coordinates = planner.get_tree_coordinates_json()
+
+# Generate visualization
+image_buffer = planner.generate_planting_image()
+```
+
+### Web Interface
+
+1. Configure area dimensions (width, length)
+2. Set tree spacing distance
+3. Adjust randomness factor
+4. Select generation method
+5. Click "Generate Planting Plan"
+6. View results and download coordinates
+
+## Configuration
+
+The application supports different configuration environments:
+
+- `development`: Debug mode enabled, full iterations
+- `testing`: Reduced iterations for faster testing
+- `production`: Optimized for production deployment
+
+Set the environment with the `FLASK_ENV` environment variable.
+
+## Methods
+
+### Perlin Noise Method
+
+Uses coherent noise algorithms to create organic, natural-looking patterns with smooth variations in tree placement.
+
+### Poisson Disc Sampling
+
+Generates evenly distributed points with controlled minimum spacing, preventing clustering while maintaining natural randomness.
+
+### Natural Forest Pattern
+
+Simulates natural forest dynamics including gap creation, clustered regeneration, and variable spacing based on forest ecology principles.
+
+### Uniform Angle Index Method
+
+Scientific method based on Zhang et al. (2019) research using structural units to ensure ≥50% random units (Wi=0.5) for near-natural patterns.
+
+## API Endpoints
+
+- `GET /`: Main application interface
+- `POST /generate_plan`: Generate tree planting plan
+- `GET /optimization_progress`: Get current optimization progress
+- `GET /generate_plan_stream`: Real-time streaming updates (SSE)
+- `POST /download_coordinates`: Download coordinates as JSON
+- `GET /test`: Health check endpoint
 
 ## License
 
 This project is open source and available under the MIT License.
-
-## 🐳 Devcontainer Support
-
-This project includes full devcontainer support for a consistent development environment:
-
-### Quick Start with Devcontainer
-
-1. Install [VS Code](https://code.visualstudio.com/) and [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-2. Install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-3. Open the project in VS Code
-4. Click "Reopen in Container" when prompted
-5. Run the app with `./start.sh` or use the debug configuration
-
-### What's Included
-
-- **Python 3.13** with all dependencies pre-installed
-- **Flask development server** with auto-reload
-- **VS Code extensions** for Python, debugging, and formatting
-- **Port forwarding** for seamless local development
-- **Code formatting** with Ruff and linting with Pylint
-- **Debugging support** with breakpoints and step-through debugging
-
-See [DEVCONTAINER.md](DEVCONTAINER.md) for detailed setup instructions.
-
-## 🐋 Docker Support
-
-### Development with Docker Compose
-
-```bash
-docker-compose up
-```
-
-### Production Docker Build
-
-```bash
-docker build -t treeplanter .
-docker run -p 5000:5000 treeplanter
-```

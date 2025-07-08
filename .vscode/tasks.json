@@ -23,7 +23,7 @@
             "problemMatcher": [],
             "options": {
                 "env": {
-                    "FLASK_APP": "app.py",
+                    "FLASK_APP": "main.py",
                     "FLASK_ENV": "development",
                     "FLASK_DEBUG": "1"
                 }
@@ -122,7 +122,8 @@
             "type": "shell",
             "command": "pylint",
             "args": [
-                "app.py"
+                "main.py",
+                "tree_planner/"
             ],
             "group": "test",
             "presentation": {
@@ -190,7 +191,7 @@
             "command": "bash",
             "args": [
                 "-c",
-                "echo '🔍 Running Ruff check...' && ruff check . && echo '🔍 Running Pylint...' && pylint app.py && echo '✅ All checks passed!'"
+                "echo '🔍 Running Ruff check...' && ruff check . && echo '🔍 Running Pylint...' && pylint main.py tree_planner/ && echo '✅ All checks passed!'"
             ],
             "group": "test",
             "presentation": {
