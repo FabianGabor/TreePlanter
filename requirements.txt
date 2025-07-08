@@ -1,5 +1,28 @@
-Flask==2.3.3
-Pillow==10.0.1
-numpy==1.24.3
-perlin-noise==1.2.3
-matplotlib==3.7.2
+# Flask web framework
+Flask>=3.0.0
+Werkzeug>=3.0.1
+
+# Image processing
+Pillow>=10.1.0
+
+# Scientific computing and data visualization
+numpy>=1.26.2
+matplotlib>=3.8.2
+
+# Perlin noise generation
+perlin-noise>=1.12
+
+# Development and debugging tools
+python-dotenv>=1.0.0
+
+# Optional: For enhanced development experience
+ipython>=8.18.1
+
+# Testing (optional)
+pytest>=7.4.3
+pytest-flask>=1.3.0
+
+# Code formatting and linting
+ruff>=0.12.2
+pylint>=3.3.7
+pre-commit>=3.5.0

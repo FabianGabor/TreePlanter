@@ -12,7 +12,7 @@
             min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         .main-container {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
@@ -20,7 +20,7 @@
             backdrop-filter: blur(10px);
             margin: 20px 0;
         }
-        
+
         .header {
             background: linear-gradient(135deg, #2d5016 0%, #3e7b27 100%);
             color: white;
@@ -28,42 +28,42 @@
             border-radius: 20px 20px 0 0;
             text-align: center;
         }
-        
+
         .header h1 {
             margin: 0;
             font-size: 2.5rem;
             font-weight: 300;
         }
-        
+
         .header p {
             margin: 10px 0 0 0;
             opacity: 0.9;
             font-size: 1.1rem;
         }
-        
+
         .form-section {
             padding: 40px;
         }
-        
+
         .custom-card {
             border: none;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             margin-bottom: 20px;
         }
-        
+
         .form-control {
             border-radius: 10px;
             border: 2px solid #e0e0e0;
             padding: 12px 15px;
             transition: all 0.3s ease;
         }
-        
+
         .form-control:focus {
             border-color: #2d5016;
             box-shadow: 0 0 0 0.2rem rgba(45, 80, 22, 0.25);
         }
-        
+
         .btn-generate {
             background: linear-gradient(135deg, #2d5016 0%, #3e7b27 100%);
             border: none;
@@ -76,13 +76,13 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
+
         .btn-generate:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(45, 80, 22, 0.3);
             color: white;
         }
-        
+
         .btn-download {
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
             border: none;
@@ -91,13 +91,13 @@
             color: white;
             transition: all 0.3s ease;
         }
-        
+
         .btn-download:hover {
             transform: translateY(-1px);
             box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
             color: white;
         }
-        
+
         .result-section {
             background: #f8f9fa;
             border-radius: 15px;
@@ -105,13 +105,13 @@
             margin-top: 30px;
             display: none;
         }
-        
+
         .tree-image {
             max-width: 100%;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
-        
+
         .stats-card {
             background: white;
             border-radius: 15px;
@@ -119,50 +119,50 @@
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
-        
+
         .stats-number {
             font-size: 2rem;
             font-weight: bold;
             color: #2d5016;
         }
-        
+
         .stats-label {
             color: #6c757d;
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
+
         .loading {
             display: none;
             text-align: center;
             padding: 20px;
         }
-        
+
         .spinner-border {
             width: 3rem;
             height: 3rem;
             color: #2d5016;
         }
-        
+
         .error-alert {
             border-radius: 15px;
             border: none;
         }
-        
+
         .form-label {
             font-weight: 600;
             color: #495057;
             margin-bottom: 8px;
         }
-        
+
         .input-group-text {
             background: #f8f9fa;
             border: 2px solid #e0e0e0;
             border-radius: 10px 0 0 10px;
             font-weight: 600;
         }
-        
+
         .coordinates-section {
             max-height: 300px;
             overflow-y: auto;
@@ -171,29 +171,29 @@
             padding: 15px;
             margin-top: 15px;
         }
-        
+
         .coordinate-item {
             padding: 8px;
             border-bottom: 1px solid #e0e0e0;
             font-family: 'Courier New', monospace;
             font-size: 0.9rem;
         }
-        
+
         .coordinate-item:last-child {
             border-bottom: none;
         }
-        
+
         .progress {
             background-color: #e9ecef;
             border-radius: 10px;
             overflow: hidden;
         }
-        
+
         .progress-bar {
             background: linear-gradient(135deg, #2d5016 0%, #3e7b27 100%);
             transition: width 0.6s ease;
         }
-        
+
         #optimizationLog {
             font-family: 'Courier New', monospace;
             background: rgba(255, 255, 255, 0.1);
@@ -204,7 +204,7 @@
             max-width: 100%;
             word-wrap: break-word;
         }
-        
+
         .form-check {
             background: rgba(45, 80, 22, 0.05);
             border-radius: 15px;
@@ -215,7 +215,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .form-check:before {
             content: '';
             position: absolute;
@@ -226,29 +226,29 @@
             background: linear-gradient(90deg, transparent, rgba(45, 80, 22, 0.1), transparent);
             transition: left 0.5s ease;
         }
-        
+
         .form-check:hover {
             border-color: rgba(45, 80, 22, 0.3);
             background: rgba(45, 80, 22, 0.08);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(45, 80, 22, 0.1);
         }
-        
+
         .form-check:hover:before {
             left: 100%;
         }
-        
+
         .form-check-input:checked ~ .form-check-label {
             color: #2d5016;
             font-weight: 600;
         }
-        
+
         .form-check-input:checked {
             background-color: #2d5016;
             border-color: #2d5016;
             box-shadow: 0 0 0 0.25rem rgba(45, 80, 22, 0.25);
         }
-        
+
         .form-check input[type="radio"]:checked + .form-check-label:before {
             content: '✓';
             position: absolute;
@@ -258,24 +258,24 @@
             font-weight: bold;
             font-size: 1.2rem;
         }
-        
+
         .method-card {
             position: relative;
         }
-        
+
         .method-description {
             font-size: 0.9rem;
             color: #6c757d;
             margin-top: 8px;
             line-height: 1.4;
         }
-        
+
         .method-highlight {
             background: linear-gradient(135deg, #2d5016 0%, #3e7b27 100%);
             color: white;
             border-color: #2d5016 !important;
         }
-        
+
         .method-highlight .form-check-label,
         .method-highlight .method-description {
             color: white !important;
@@ -289,7 +289,7 @@
                 <h1><i class="fas fa-tree"></i> Tree Planter Tool</h1>
                 <p>Design your perfect tree planting layout with intelligent spacing</p>
             </div>
-            
+
             <div class="form-section">
                 <form id="treePlannerForm">
                     <div class="row">
@@ -297,20 +297,20 @@
                             <div class="custom-card">
                                 <div class="card-body">
                                     <h5 class="card-title"><i class="fas fa-ruler"></i> Area Dimensions</h5>
-                                    
+
                                     <div class="mb-3">
                                         <label for="width" class="form-label">Width</label>
                                         <div class="input-group">
-                                            <input type="number" class="form-control" id="width" name="width" 
+                                            <input type="number" class="form-control" id="width" name="width"
                                                    placeholder="Enter width" min="1" step="0.1" value="20" required>
                                             <span class="input-group-text">meters</span>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="mb-3">
                                         <label for="length" class="form-label">Length</label>
                                         <div class="input-group">
-                                            <input type="number" class="form-control" id="length" name="length" 
+                                            <input type="number" class="form-control" id="length" name="length"
                                                    placeholder="Enter length" min="1" step="0.1" value="15" required>
                                             <span class="input-group-text">meters</span>
                                         </div>
@@ -318,26 +318,26 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6">
                             <div class="custom-card">
                                 <div class="card-body">
                                     <h5 class="card-title"><i class="fas fa-seedling"></i> Tree Spacing</h5>
-                                    
+
                                     <div class="mb-3">
                                         <label for="tree_distance" class="form-label">Approximate Distance</label>
                                         <div class="input-group">
-                                            <input type="number" class="form-control" id="tree_distance" name="tree_distance" 
+                                            <input type="number" class="form-control" id="tree_distance" name="tree_distance"
                                                    placeholder="Distance between trees" min="0.5" step="0.1" value="3" required>
                                             <span class="input-group-text">meters</span>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="mb-3">
                                         <label for="randomness" class="form-label">
                                             Randomness Factor <span id="randomnessValue" class="badge bg-secondary">0.3</span>
                                         </label>
-                                        <input type="range" class="form-range" id="randomness" name="randomness" 
+                                        <input type="range" class="form-range" id="randomness" name="randomness"
                                                min="0" max="0.8" step="0.1" value="0.3">
                                         <div class="d-flex justify-content-between">
                                             <small>Regular</small>
@@ -348,7 +348,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-12">
                             <div class="custom-card">
@@ -362,7 +362,7 @@
                                 <strong><i class="fas fa-wave-square"></i> Perlin Noise Method</strong>
                             </label>
                             <div class="method-description">
-                                Creates organic, natural-looking patterns using coherent noise algorithms. 
+                                Creates organic, natural-looking patterns using coherent noise algorithms.
                                 Ideal for mimicking natural forest growth patterns with smooth variations in tree placement.
                                 <br><strong>Best for:</strong> Natural forest layouts, artistic arrangements
                             </div>
@@ -373,7 +373,7 @@
                                 <strong><i class="fas fa-circle-dot"></i> Poisson Disc Sampling</strong>
                             </label>
                             <div class="method-description">
-                                Generates evenly distributed points with controlled minimum spacing. 
+                                Generates evenly distributed points with controlled minimum spacing.
                                 Prevents clustering while maintaining natural randomness for optimal space utilization.
                                 <br><strong>Best for:</strong> Orchards, plantations, efficient space usage
                             </div>
@@ -383,57 +383,57 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="text-center">
                         <button type="submit" class="btn btn-generate">
                             <i class="fas fa-magic"></i> Generate Planting Plan
                         </button>
                     </div>
                 </form>
-                
+
                 <div class="loading" id="loading">
                     <div class="spinner-border" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
                     <p class="mt-3" id="loadingText">Generating your tree planting plan...</p>
                     <div class="progress mt-3" style="height: 20px;">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                        <div class="progress-bar progress-bar-striped progress-bar-animated"
                              id="progressBar" role="progressbar" style="width: 0%">0%</div>
                     </div>
                     <div class="mt-3">
                         <small id="optimizationLog" class="text-muted"></small>
                     </div>
                 </div>
-                
+
                 <div class="result-section" id="resultSection">
                     <div class="row">
                         <div class="col-md-8">
                             <h4><i class="fas fa-map"></i> Planting Plan</h4>
                             <img id="planImage" src="" alt="Tree Planting Plan" class="tree-image">
                         </div>
-                        
+
                         <div class="col-md-4">
                             <h4><i class="fas fa-chart-bar"></i> Statistics</h4>
-                            
+
                             <div class="stats-card mb-3">
                                 <div class="stats-number" id="totalTrees">0</div>
                                 <div class="stats-label">Total Trees</div>
                             </div>
-                            
+
                             <div class="stats-card mb-3">
                                 <div class="stats-number" id="areaSize">0</div>
                                 <div class="stats-label">Area (m²)</div>
                             </div>
-                            
+
                             <div class="stats-card mb-3">
                                 <div class="stats-number" id="treeDensity">0</div>
                                 <div class="stats-label">Trees per m²</div>
                             </div>
-                            
+
                             <button class="btn btn-download w-100" id="downloadBtn">
                                 <i class="fas fa-download"></i> Download Coordinates
                             </button>
-                            
+
                             <div class="coordinates-section" id="coordinatesSection">
                                 <h6><i class="fas fa-crosshairs"></i> Tree Coordinates</h6>
                                 <div id="coordinatesList"></div>
@@ -448,19 +448,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         let currentCoordinates = null;
-        
+
         console.log('JavaScript loaded successfully');
-        
+
         document.addEventListener('DOMContentLoaded', function() {
             console.log('DOM content loaded');
-            
+
             // Test if form exists
             const form = document.getElementById('treePlannerForm');
             const button = document.querySelector('button[type="submit"]');
-            
+
             console.log('Form element:', form);
             console.log('Submit button:', button);
-            
+
             if (!form) {
                 console.error('Form not found!');
                 return;
@@ -469,14 +469,14 @@
                 console.error('Submit button not found!');
                 return;
             }
-            
+
             // Add form submit event listener
             form.addEventListener('submit', function(e) {
                 console.log('Form submit event triggered');
                 e.preventDefault();
                 generatePlan();
             });
-            
+
             // Add download button event listener
             const downloadBtn = document.getElementById('downloadBtn');
             if (downloadBtn) {
@@ -487,7 +487,7 @@
                     }
                 });
             }
-            
+
             // Update randomness display
             const randomnessSlider = document.getElementById('randomness');
             const randomnessValue = document.getElementById('randomnessValue');
@@ -495,7 +495,7 @@
                 randomnessSlider.addEventListener('input', function() {
                     const value = this.value;
                     randomnessValue.textContent = value;
-                    
+
                     const labels = this.parentElement.querySelectorAll('small');
                     if (value < 0.2) {
                         labels[0].style.fontWeight = 'bold';
@@ -512,12 +512,12 @@
                     }
                 });
             }
-            
+
             // Add method selection visual feedback
             const methodRadios = document.querySelectorAll('input[name="method"]');
             const perlinCard = document.getElementById('perlinCard');
             const poissonCard = document.getElementById('poissonCard');
-            
+
             function updateMethodSelection() {
                 if (document.getElementById('methodPerlin').checked) {
                     perlinCard.classList.add('method-highlight');
@@ -527,14 +527,14 @@
                     perlinCard.classList.remove('method-highlight');
                 }
             }
-            
+
             methodRadios.forEach(radio => {
                 radio.addEventListener('change', updateMethodSelection);
             });
-            
+
             // Initialize method selection
             updateMethodSelection();
-            
+
             // Form validation
             document.querySelectorAll('input[type="number"]').forEach(input => {
                 input.addEventListener('input', function() {
@@ -544,7 +544,7 @@
                         const width = parseFloat(document.getElementById('width').value) || 0;
                         const length = parseFloat(document.getElementById('length').value) || 0;
                         const minDimension = Math.min(width, length);
-                        
+
                         if (minDimension > 0 && this.value > minDimension) {
                             this.setCustomValidity('Tree distance cannot be larger than the smallest area dimension');
                         } else {
@@ -556,35 +556,35 @@
                 });
             });
         });
-        
+
         document.getElementById('downloadBtn').addEventListener('click', function() {
             if (currentCoordinates) {
                 downloadCoordinates();
             }
         });
-        
+
         function generatePlan() {
             const formData = new FormData(document.getElementById('treePlannerForm'));
-            
+
             // Validate form inputs
             const form = document.getElementById('treePlannerForm');
             if (!form.checkValidity()) {
                 form.reportValidity();
                 return;
             }
-            
+
             console.log('Starting tree plan generation...');
-            
+
             // Show loading
             document.getElementById('loading').style.display = 'block';
             document.getElementById('resultSection').style.display = 'none';
-            
+
             // Reset progress
             updateProgress(0, 'Starting optimization...');
-            
+
             // First try using the original endpoint for testing
             console.log('Testing basic endpoint first...');
-            
+
             fetch('/generate_plan', {
                 method: 'POST',
                 body: formData
@@ -593,23 +593,23 @@
             .then(data => {
                 console.log('Basic endpoint response:', data);
                 document.getElementById('loading').style.display = 'none';
-                
+
                 if (data.success) {
                     // Display image
                     document.getElementById('planImage').src = 'data:image/png;base64,' + data.image;
-                    
+
                     // Update statistics
                     const area = data.coordinates.area.width * data.coordinates.area.length;
                     document.getElementById('totalTrees').textContent = data.coordinates.total_trees;
                     document.getElementById('areaSize').textContent = area.toFixed(1);
                     document.getElementById('treeDensity').textContent = (data.coordinates.total_trees / area).toFixed(3);
-                    
+
                     // Store coordinates for download
                     currentCoordinates = data.coordinates;
-                    
+
                     // Display coordinates
                     displayCoordinates(data.coordinates.coordinates);
-                    
+
                     // Show results
                     document.getElementById('resultSection').style.display = 'block';
                 } else {
@@ -621,31 +621,31 @@
                 document.getElementById('loading').style.display = 'none';
                 showError('Network error: ' + error.message);
             });
-            
+
             // TODO: Switch to streaming version later
-            /* 
+            /*
             // Convert FormData to URL parameters for EventSource (GET request)
             const params = new URLSearchParams();
             for (let [key, value] of formData.entries()) {
                 params.append(key, value);
                 console.log(`Form parameter: ${key} = ${value}`);
             }
-            
+
             const url = '/generate_plan_stream?' + params.toString();
             console.log('EventSource URL:', url);
-            
+
             // Use Server-Sent Events for real-time updates
             const eventSource = new EventSource(url);
-            
+
             eventSource.onopen = function(event) {
                 console.log('EventSource connection opened');
             };
-            
+
             eventSource.onmessage = function(event) {
                 console.log('Received SSE message:', event.data);
                 try {
                     const data = JSON.parse(event.data);
-                    
+
                     if (data.error) {
                         // Handle errors
                         console.error('Server error:', data.error);
@@ -654,37 +654,37 @@
                         showError(data.error);
                         return;
                     }
-                    
+
                     if (data.completed) {
                         // Final result received
                         console.log('Optimization completed');
                         eventSource.close();
                         document.getElementById('loading').style.display = 'none';
-                        
+
                         if (data.image && data.coordinates) {
                             displayFinalResult(data.image, data.coordinates);
                         }
                     } else if (data.is_best && data.image) {
                         // New best result with image - update display
                         console.log(`New best result: ${data.tree_count} trees`);
-                        updateProgress(data.progress_percent, 
+                        updateProgress(data.progress_percent,
                             `Iteration ${data.iteration}/${data.max_iterations}: Found better result with ${data.tree_count} trees!`);
-                        
+
                         // Update image immediately
                         document.getElementById('planImage').src = 'data:image/png;base64,' + data.image;
-                        
+
                         // Update statistics
                         const area = data.coordinates.area.width * data.coordinates.area.length;
                         document.getElementById('totalTrees').textContent = data.tree_count;
                         document.getElementById('areaSize').textContent = area.toFixed(1);
                         document.getElementById('treeDensity').textContent = (data.tree_count / area).toFixed(3);
-                        
+
                         // Store coordinates for download
                         currentCoordinates = data.coordinates;
-                        
+
                         // Display coordinates
                         displayCoordinates(data.coordinates.coordinates);
-                        
+
                         // Show results section if not already visible
                         if (document.getElementById('resultSection').style.display === 'none') {
                             document.getElementById('resultSection').style.display = 'block';
@@ -692,14 +692,14 @@
                     } else {
                         // Progress update without new best
                         console.log(`Progress: iteration ${data.iteration}/${data.max_iterations}`);
-                        updateProgress(data.progress_percent, 
+                        updateProgress(data.progress_percent,
                             `Iteration ${data.iteration}/${data.max_iterations}: Testing pattern (${data.tree_count} trees)...`);
                     }
                 } catch (error) {
                     console.error('Error parsing SSE data:', error);
                 }
             };
-            
+
             eventSource.onerror = function(event) {
                 console.error('EventSource error:', event);
                 eventSource.close();
@@ -708,40 +708,40 @@
             };
             */
         }
-        
+
         function updateProgress(percent, message) {
             const progressBar = document.getElementById('progressBar');
             const logElement = document.getElementById('optimizationLog');
-            
+
             progressBar.style.width = percent + '%';
             progressBar.textContent = Math.round(percent) + '%';
             logElement.textContent = message;
         }
-        
+
         function displayFinalResult(imageBase64, coordinates) {
             // Display final image
             document.getElementById('planImage').src = 'data:image/png;base64,' + imageBase64;
-            
+
             // Update final statistics
             const area = coordinates.area.width * coordinates.area.length;
             document.getElementById('totalTrees').textContent = coordinates.total_trees;
             document.getElementById('areaSize').textContent = area.toFixed(1);
             document.getElementById('treeDensity').textContent = (coordinates.total_trees / area).toFixed(3);
-            
+
             // Store coordinates for download
             currentCoordinates = coordinates;
-            
+
             // Display coordinates
             displayCoordinates(coordinates.coordinates);
-            
+
             // Show final results
             document.getElementById('resultSection').style.display = 'block';
         }
-        
+
         function displayCoordinates(coordinates) {
             const list = document.getElementById('coordinatesList');
             list.innerHTML = '';
-            
+
             coordinates.forEach(tree => {
                 const item = document.createElement('div');
                 item.className = 'coordinate-item';
@@ -749,7 +749,7 @@
                 list.appendChild(item);
             });
         }
-        
+
         function downloadCoordinates() {
             fetch('/download_coordinates', {
                 method: 'POST',
@@ -774,15 +774,15 @@
                 showError('Download failed: ' + error.message);
             });
         }
-        
+
         function showError(message) {
             const alertDiv = document.createElement('div');
             alertDiv.className = 'alert alert-danger error-alert';
             alertDiv.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${message}`;
-            
+
             const container = document.querySelector('.form-section');
             container.insertBefore(alertDiv, container.firstChild);
-            
+
             // Remove after 5 seconds
             setTimeout(() => {
                 if (alertDiv.parentNode) {
